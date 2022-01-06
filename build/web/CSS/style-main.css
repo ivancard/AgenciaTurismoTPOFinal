@@ -1,0 +1,327 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --radio: 10px;
+    --color-celeste: #24a6e0;
+    --color-celeste-hover: #0b95d4;
+    --color-verde: #afcc4e;
+    --color-naranja: #e95b2b;
+    --color-negro: #1e1e1e;
+    --gradiente: linear-gradient(
+        180deg,
+        rgba(124, 195, 228, 0.7) 0%,
+        rgba(222, 236, 251, 0.9) 100%
+    );
+}
+button {
+    background: transparent;
+    border: none;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+p {
+    color: white;
+    font-family: 'Lato', sans-serif;
+}
+
+.fondo {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    z-index: -2;
+}
+.fondo svg {
+    height: 100vh;
+    z-index: 1;
+}
+
+.fondo .glass-fondo {
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.caja-pp {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 100%;
+    height: 100vh;
+    background-color: transparent;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--gradiente);
+    height: 100vh;
+    width: 15%;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 0 10px 10px 0;
+}
+
+.logo-completo {
+    width: 200px;
+    padding: -20px 0;
+}
+
+.sidebar ul {
+    color: white;
+    list-style-type: none;
+    align-self: flex-start;
+    margin-left: 15px;
+    margin-top: 30px;
+}
+.sidebar ul li {
+    margin: 40px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 50px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.sidebar ul li.active {
+    background-color: white;
+    border-radius: var(--radio) 0 0 var(--radio);
+    color: var(--color-negro);
+    filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.2));
+}
+.sidebar ul li.active svg {
+    fill: var(--color-negro);
+}
+
+.sidebar ul li h3 {
+    margin-left: 20px;
+    padding-top: 5px;
+    /* box-shadow: 2px 2px 5px black; */
+    filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.5));
+    text-align: start;
+}
+.sidebar ul li svg,
+.sidebar .user svg {
+    width: 30px;
+    fill: white;
+    filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.5));
+}
+.ico {
+    margin-left: 50px;
+}
+.sidebar .user {
+    margin-left: -40px;
+    margin-top: 220px;
+    display: flex;
+    align-items: center;
+}
+.sidebar .user svg {
+    width: 50px;
+}
+.sidebar .user p {
+    filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.5));
+    margin: 0;
+    margin-top: 3px;
+    margin-left: 15px;
+}
+hr {
+    width: 40%;
+    color: white;
+}
+
+.main {
+    background: var(--gradiente);
+    margin: 50px;
+    width: 100%;
+    height: 90vh;
+    border-radius: var(--radio);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.oculto {
+    display: none !important;
+}
+
+.venta,
+.cliente,
+.empleado,
+.servicio,
+.ganancias {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.servicio header,
+.empleado header,
+.cliente header,
+.venta header {
+    width: 100%;
+    align-self: flex-start;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.venta h1,
+.cliente h1,
+.empleado h1,
+.servicio header h1,
+.ganancias h1 {
+    align-self: flex-start;
+    justify-content: center;
+    margin-top: 40px;
+    margin-left: 40px;
+    filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.5));
+}
+
+.venta hr,
+.cliente hr,
+.empleado hr,
+.servicio hr,
+.ganancias hr {
+    align-self: flex-start;
+    margin-left: 40px;
+    margin-top: 0;
+    width: 94%;
+}
+
+.subtitulo {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.5));
+}
+
+.venta .panelVentaBotones button {
+    margin: 0 50px;
+    padding: 5px 25px;
+    background-color: var(--color-celeste);
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+.venta .panelVentaBotones button:hover {
+    background-color: var(--color-celeste-hover);
+}
+
+.divPaquete,
+.divServicio {
+    width: 50%;
+    margin-top: 80px;
+}
+.formPaquete,
+.formServicio,
+.formEmpleado,
+.formServicioAlta {
+    display: flex;
+    flex-direction: column;
+}
+.ventaDatosPersonales {
+    display: flex;
+}
+.ventaDatosPersonales .dni input,
+.input {
+    margin-left: 8px;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+.ventaDatosPersonales .dni input:focus,
+.input:focus {
+    outline: none;
+    box-shadow: inset 0px 0px 5px var(--color-celeste);
+}
+.ventaDatosPersonales .pago {
+    margin-left: 32px;
+}
+.ventaDatosPersonales .pago select,
+.divServicio .serviciosLista select {
+    margin-left: 8px;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.ventaDatosPersonales .pago select:focus,
+.divServicio .serviciosLista select:focus {
+    outline: none;
+    box-shadow: inset 0px 0px 5px var(--color-celeste);
+}
+.divPaquete label,
+.divServicio label {
+    font-size: 1.2rem;
+}
+.divPaquete .serviciosContainer {
+    width: 90%;
+    max-height: 150px;
+
+    margin: 10px auto;
+}
+
+.divPaquete input[type='submit'],
+.divServicio input[type='submit'],
+.boton {
+    padding: 5px 25px;
+    background-color: var(--color-celeste);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    align-self: center;
+    margin-top: 100px;
+}
+.divPaquete input[type='submit']:hover,
+.divServicio input[type='submit']:hover,
+.boton:hover {
+    background-color: var(--color-celeste-hover);
+}
+
+.formCliente,
+.formEmpleado,
+.formServicioAlta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formCliente div,
+.formEmpleado div,
+.formServicioAlta div {
+    padding-left: 50px;
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 70%;
+}
+
+.formCliente div p,
+.formEmpleado div p,
+.formServicioAlta p {
+    padding-left: 20px;
+}
+.formCliente div p label,
+.formEmpleado div p label,
+.formServicioAlta div p label {
+    filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.5));
+}
+
+.sombra{
+    filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.5));
+}

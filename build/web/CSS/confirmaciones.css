@@ -1,0 +1,23 @@
+.login-box svg{
+    filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.5));
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.boton {
+    padding: 5px 25px;
+    background-color: var(--color-celeste);
+    color: white;
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 5px;
+    align-self: center;
+    margin-top: 100px;
+}
+.boton:hover {
+    background-color: var(--color-celeste-hover);
+}
+
+a:hover{
+    color: white;
+}

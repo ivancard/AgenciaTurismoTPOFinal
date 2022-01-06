@@ -1,0 +1,50 @@
+:root {
+    --radio: 10px;
+    --color-celeste: #24a6e0;
+    --color-celeste-hover: #0b95d4;
+    --color-verde: #afcc4e;
+    --color-naranja: #e95b2b;
+    --color-negro: #1e1e1e;
+    --gradiente: linear-gradient(
+        180deg,
+        rgba(124, 195, 228, 0.7) 0%,
+        rgba(255, 255, 255, 0.5) 100%
+    );
+}
+
+.formEditar{
+    display: flex;
+    align-items: flex-start;
+}
+
+.botonEliminar,
+.botonEditar{
+    padding: 0 8px;
+    padding-bottom: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+.botonEliminar svg,
+.botonEditar svg{
+    margin: 0;
+}
+
+.botonEliminar{
+    background-color: var(--color-naranja);
+}
+
+.botonEditar{
+    background-color: var(--color-celeste);
+}
+
+.login-box h1{
+    margin: 40px 0;
+    color: white;
+}
+.contenedor-tabla{
+    height: 60%;
+    max-height: 60%;
+    
+    overflow: scroll;
+}
