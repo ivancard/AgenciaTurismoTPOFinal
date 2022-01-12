@@ -1,6 +1,14 @@
 <%-- Document : main Created on : 19/12/2021, 16:46:50 Author : ivanc --%>
 
-    <%@page import="logica.Servicio"%>
+    <%@page import="logica.Empleado"%>
+<%@page import="java.util.TreeSet"%>
+<%@page import="java.util.NavigableSet"%>
+<%@page import="java.util.SortedSet"%>
+<%@page import="java.util.Set"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="logica.Venta"%>
+<%@page import="logica.Servicio"%>
 <%@page import="java.util.List"%>
 <%@page import="logica.Controladora"%>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
@@ -12,6 +20,8 @@
 
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>Silicon Travel</title>
+            <link rel="shortcut icon" href="img/faviconSilicon.svg" type="image/x-icon">
 
             <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.2/dist/chart.min.js"></script>
 
@@ -212,10 +222,17 @@
 
                                 <h3>Servicios</h3>
                             </li>
+                            <li class="list" id="liGanancias">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" />
+                                </svg>
+
+                                <h3>Estadisticas</h3>
+                            </li>
                             
                         </ul>
                         <div class="user">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="57.843" height="57.843"
+                            <svg class="ico-user" xmlns="http://www.w3.org/2000/svg" width="57.843" height="57.843"
                                 viewBox="0 0 57.843 57.843">
                                 <path id="Trazado_26" data-name="Trazado 26"
                                     d="M59.843,30.921A28.921,28.921,0,1,1,30.921,2,28.921,28.921,0,0,1,59.843,30.921ZM38.152,20.076a7.23,7.23,0,1,1-7.23-7.23A7.23,7.23,0,0,1,38.152,20.076Zm-7.23,14.461A18.077,18.077,0,0,0,14.485,45.082a21.7,21.7,0,0,0,32.871,0A18.076,18.076,0,0,0,30.921,34.537Z"
@@ -226,6 +243,13 @@
                                 <p><%=cargoEmple%></p>
                             </div>
                             
+                            <form action="SvLogOut" method="post">
+                                <button type="submit">
+                                    <svg xmlns=  "http://www.w3.org/2000/svg" class="h-6 w-6 logout"  viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                                    </svg>
+                                </button>
+                            </form>
 
 
                         </div>
@@ -525,12 +549,182 @@
                         </div>
                         <div class="panel ganancias oculto" id="ganancias">
 
-                            <h1>Ganancias</h1>
+                            <h1>Estadisticas</h1>
                             <hr>
-                            <form action="SvMostrarGanancias" method="get">
-                                <input class="boton" type="submit" name="mostrarGanancias" id="mostrarGanancias"
-                                    value="Mostrar Ganancias">
-                            </form>
+                            <div class="contenedor-ganancias">
+                                <div class="chart-1 sombra">
+                                    <canvas id="myChart" width="400" height="400"></canvas>
+                                    <%
+                                    List <Venta> ventalist = control.obtenerVentas();
+                                    
+                                    int eneroCant=0;
+                                    int febreroCant=0;
+                                    int marzoCant=0;
+                                    int abrilCant=0;
+                                    int mayoCant=0;
+                                    int junioCant=0;
+                                    int julioCant=0;
+                                    int agostoCant=0;
+                                    int septiembreCant=0;
+                                    int octubreCant=0;
+                                    int noviembreCant=0;
+                                    int diciembreCant=0;
+                                    
+                                    for (Venta venta : ventalist) {
+                                        
+                                            
+                                            int mes = venta.getFechaVenta().getMonth();
+                                        
+                                            switch( mes ){
+                                                case 0: 
+                                                    eneroCant++;
+                                                    break;
+                                                case 1:
+                                                    febreroCant++;
+                                                    break;
+                                                case 2:
+                                                    marzoCant++;
+                                                    break;
+                                                case 3:
+                                                    abrilCant++;
+                                                    break;
+                                                case 4:
+                                                    mayoCant++;
+                                                    break;
+                                                case 5:
+                                                    junioCant++;
+                                                    break;
+                                                case 6:
+                                                    julioCant++;
+                                                    break;
+                                                case 7:
+                                                    agostoCant++;
+                                                    break;
+                                                case 8:
+                                                    septiembreCant++;
+                                                    break;
+                                                case 9:
+                                                    octubreCant++;
+                                                    break;
+                                                case 10:
+                                                    noviembreCant++;
+                                                    break;
+                                                case 11:
+                                                    diciembreCant++;
+                                                    break;
+                                                default:
+                                                    break;
+                                            }
+                                        }
+
+                                    %>
+                                    <script>
+                                        const ctx = document.getElementById('myChart').getContext('2d');
+                                        const myChart = new Chart(ctx, {
+                                            type: 'line',
+                                            data: {
+                                                labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto','Septiembre', 'Octubre', 'Nomviembre', 'Diciembre'],
+                                                datasets: [{
+                                                    label: 'Ventas por mes',
+                                                    data: [<%=eneroCant%>, <%=febreroCant%>, <%=marzoCant%>, <%=abrilCant%>, <%=mayoCant%>, <%=junioCant%>, <%=julioCant%>
+                                                        , <%=agostoCant%>, <%=septiembreCant%>, <%=octubreCant%>, <%=noviembreCant%>, <%=diciembreCant%>],
+                                                    backgroundColor: [
+                                                        'rgba(255, 99, 132, 0.2)',
+                                                        'rgba(54, 162, 235, 0.2)',
+                                                        'rgba(255, 206, 86, 0.2)',
+                                                        'rgba(75, 192, 192, 0.2)',
+                                                        'rgba(153, 102, 255, 0.2)',
+                                                        'rgba(255, 159, 64, 0.2)'
+                                                    ],
+                                                    borderColor: [
+                                                        'rgba(255, 99, 132, 1)',
+                                                        'rgba(54, 162, 235, 1)',
+                                                        'rgba(255, 206, 86, 1)',
+                                                        'rgba(75, 192, 192, 1)',
+                                                        'rgba(153, 102, 255, 1)',
+                                                        'rgba(255, 159, 64, 1)'
+                                                    ],
+                                                    borderWidth: 1
+                                                }]
+                                            },
+                                            options: {
+                                                responsive: true,
+                                                
+                                                scales: {
+                                                    y: {
+                                                        beginAtZero: true
+                                                    }
+                                                }
+                                            }
+                                        });
+                                    </script>
+                                </div>
+                                <div class="chart-1 sombra">
+                                    <canvas id="myChart2" width="400" height="400"></canvas>
+                                    
+                                   <%
+                                       
+                                        List<String>  nyaList      = new ArrayList<String>();
+                                        List<Integer> cantVentList = new ArrayList<Integer>();
+                                       
+                                      List<Empleado> listEmple = control.obtenerEmpleados();
+                                      
+                                       
+                                       for (Empleado emple : listEmple) {
+                                               String nameyape = "\"" + emple.getNombre() +" "+ emple.getApellido()+"\"";
+                                               
+                                               nyaList.add(nameyape);
+                                               
+                                               cantVentList.add(emple.getVentasRealizadas());
+                                               
+                                        }
+                                       
+                                        
+                                       
+                                   %>
+                                    
+                                    
+                                    <script>
+                                        const ctx2 = document.getElementById('myChart2').getContext('2d');
+                                        const myChart2 = new Chart(ctx2, {
+                                            type: 'bar',
+                                            data: {
+                                                labels: <%=nyaList.toString()%>,
+                                                datasets: [{
+                                                    label: 'Empleados con mas ventas',
+                                                    data: <%=cantVentList.toString()%>,
+                                                    backgroundColor: [
+                                                        'rgba(255, 99, 132, 0.2)',
+                                                        'rgba(54, 162, 235, 0.2)',
+                                                        'rgba(255, 206, 86, 0.2)',
+                                                        'rgba(75, 192, 192, 0.2)',
+                                                        'rgba(153, 102, 255, 0.2)',
+                                                        'rgba(255, 159, 64, 0.2)'
+                                                    ],
+                                                    borderColor: [
+                                                        'rgba(255, 99, 132, 1)',
+                                                        'rgba(54, 162, 235, 1)',
+                                                        'rgba(255, 206, 86, 1)',
+                                                        'rgba(75, 192, 192, 1)',
+                                                        'rgba(153, 102, 255, 1)',
+                                                        'rgba(255, 159, 64, 1)'
+                                                    ],
+                                                    borderWidth: 1
+                                                }]
+                                            },
+                                            options: {
+                                                scales: {
+                                                    y: {
+                                                        beginAtZero: true
+                                                    }
+                                                }
+                                            }
+                                        });
+                                    </script>
+
+                                </div>
+                            </div>
+                            
 
                         </div>
                     </div>

@@ -315,6 +315,9 @@ public class Controladora {
         
         venta.setMontoInicial(listServicio.getCosto());
         venta.setMontoFinal(listServicio.getCostoFinal());
+        
+        empleado.setVentasRealizadas(empleado.getVentasRealizadas() + 1);
+        
         venta.setEmpleado(empleado);
         venta.setCliente(cliente);
         venta.setMetodoDePago(metodoDePago);

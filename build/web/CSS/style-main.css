@@ -125,8 +125,8 @@ p {
     margin-left: 50px;
 }
 .sidebar .user {
-    margin-left: -40px;
-    margin-top: 220px;
+    margin-left: 0px;
+    margin-top: 140px;
     display: flex;
     align-items: center;
 }
@@ -139,6 +139,13 @@ p {
     margin-top: 3px;
     margin-left: 15px;
 }
+form button .logout{
+    fill: transparent !important;
+    stroke: white;
+    width: 45px !important;
+    margin-left: 20px;
+}
+
 hr {
     width: 40%;
     color: white;
@@ -324,4 +331,23 @@ hr {
 
 .sombra{
     filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.5));
+}
+
+.contenedor-ganancias{
+    width: 100%;
+    padding: 2%;
+    height: 700px;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
+    
+}
+
+.chart-1{
+    width: 30%;
+    height: fit-content;
+    background-color:white;
+    border-radius: 10px;
+    padding: 10px;
 }

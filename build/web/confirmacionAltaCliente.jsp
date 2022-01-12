@@ -12,6 +12,8 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Alta Cliente</title>
+    <link rel="shortcut icon" href="img/faviconSilicon.svg" type="image/x-icon">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.2/dist/chart.min.js"></script>
 

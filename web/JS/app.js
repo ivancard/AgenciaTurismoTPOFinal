@@ -43,6 +43,10 @@ liServicio.addEventListener("click", (e) => {
   mostrarPaneles(divServicio);
 });
 
+liGanancia.addEventListener("click", (e) => {
+  mostrarPaneles(divGanancia);
+});
+
 
 
 function mostrarPaneles(div) {
@@ -110,3 +114,5 @@ chekedServicios.forEach(checkBox => {
     }
   })
 });
+
+
